@@ -14,9 +14,10 @@ color:white;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
+    padding:14px 8%;
     background:#111827;
     box-shadow:0 4px 20px rgba(0,0,0,.35);
+    border-bottom:1px solid rgba(255,213,74,.15);
 }
 }
 
@@ -27,15 +28,15 @@ color:white;
 }
 
 .menu a{
-    margin-left:25px;
+    margin-left:35px;
     text-decoration:none;
-    color:#ffffff;
+    color:white;
     font-weight:600;
     transition:.3s;
 }
 
 .menu a:hover{
-    color:#F5B400;
+    color:#FFD54A;
 }
 
 .hero{
