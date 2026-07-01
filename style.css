@@ -147,3 +147,54 @@ color:white;
     border-color:#FFD54A;
     box-shadow:0 0 30px rgba(108,43,217,.35);
 }
+
+/* ===========================
+   CLASS 12 CHAPTER LIST
+=========================== */
+
+.chapter-list{
+    width:85%;
+    max-width:1100px;
+    margin:20px auto 80px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.chapter-item{
+    background:#111827;
+    border:1px solid #D7C2FF;
+    border-radius:18px;
+    padding:22px 28px;
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+    transition:.3s;
+    box-shadow:0 0 20px rgba(108,43,217,.12);
+}
+
+.chapter-item:hover{
+    transform:translateY(-4px);
+    border-color:#FFD54A;
+    box-shadow:0 0 25px rgba(108,43,217,.35);
+}
+
+.chapter-number{
+    width:70px;
+    font-size:28px;
+    font-weight:700;
+    color:#FFD54A;
+}
+
+.chapter-name{
+    flex:1;
+    font-size:22px;
+    color:#FFFFFF;
+    font-weight:600;
+}
+
+.chapter-status{
+    font-size:16px;
+    color:#D7C2FF;
+    font-weight:600;
+}
