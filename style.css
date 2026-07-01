@@ -29,13 +29,13 @@ color:white;
 .menu a{
     margin-left:25px;
     text-decoration:none;
-    color:#333;
+    color:#ffffff;
     font-weight:600;
     transition:.3s;
 }
 
 .menu a:hover{
-    color:#6C2BD9;
+    color:#F5B400;
 }
 
 .hero{
@@ -45,7 +45,7 @@ color:white;
 
 .badge{
     display:inline-block;
-    background:#ede4ff;
+    background:#1E1B4B;
     color:#6C2BD9;
     padding:10px 20px;
     border-radius:50px;
@@ -55,13 +55,13 @@ color:white;
 
 .hero h1{
     font-size:60px;
-    color:#222;
+    color:#FFD54A;
     margin-bottom:20px;
 }
 
 .hero p{
     font-size:22px;
-    color:#555;
+    color:#D1D5DB;
     line-height:1.8;
     margin-bottom:35px;
 }
