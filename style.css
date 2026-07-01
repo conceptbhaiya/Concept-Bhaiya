@@ -92,3 +92,16 @@ body{
     object-fit:contain;
     margin-right:12px;
 }
+
+.hero-image{
+    margin-bottom:30px;
+}
+
+.hero-image img{
+    width:260px;
+    height:260px;
+    object-fit:cover;
+    border-radius:50%;
+    border:6px solid #6C2BD9;
+    box-shadow:0 15px 35px rgba(108,43,217,.25);
+}
