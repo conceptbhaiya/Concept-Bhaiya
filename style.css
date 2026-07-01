@@ -220,3 +220,40 @@ color:white;
     background:#3A285A;
     color:#D7C2FF;
 }
+
+/* ===== Lecture Resource Cards ===== */
+
+.resources{
+    max-width:900px;
+    margin:40px auto 80px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    padding:0 20px;
+}
+
+.resource-card{
+    background:#161d2f;
+    border:2px solid #b69cff;
+    border-radius:22px;
+    padding:28px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.resource-card:hover{
+    transform:translateY(-4px);
+    border-color:#ffd54f;
+}
+
+.resource-card h2{
+    color:#ffd54f;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.resource-card p{
+    color:#d8d8d8;
+    font-size:18px;
+    margin:0;
+}
