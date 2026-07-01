@@ -81,3 +81,14 @@ body{
     transform:translateY(-4px);
     box-shadow:0 10px 25px rgba(108,43,217,.3);
 }
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo-img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    margin-right:12px;
+}
