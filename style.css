@@ -110,3 +110,40 @@ color:white;
     border:6px solid #6C2BD9;
     box-shadow:0 0 40px rgba(108,43,217,.45);
 }
+
+.subjects{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:20px 8% 80px;
+}
+
+.subject-card{
+    width:320px;
+    background:#111827;
+    border:1px solid #D7C2FF;
+    border-radius:20px;
+    padding:35px 25px;
+    text-decoration:none;
+    text-align:center;
+    transition:.3s;
+    box-shadow:0 0 20px rgba(108,43,217,.15);
+}
+
+.subject-card h2{
+    color:#FFD54A;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.subject-card p{
+    color:#D1D5DB;
+    font-size:18px;
+}
+
+.subject-card:hover{
+    transform:translateY(-8px);
+    border-color:#FFD54A;
+    box-shadow:0 0 30px rgba(108,43,217,.35);
+}
