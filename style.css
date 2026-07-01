@@ -240,6 +240,7 @@ color:white;
     text-decoration:none;
     transition:0.3s;
 }
+
 .resource-card,
 .resource-card:visited {
     color: inherit;
