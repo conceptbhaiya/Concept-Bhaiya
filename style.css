@@ -28,20 +28,21 @@ color:white;
 }
 
 .menu a{
-    margin-left:35px;
+    margin-left:40px;
     text-decoration:none;
     color:white;
-    font-weight:600;
+    font-weight:500;
     transition:.3s;
 }
 
 .menu a:hover{
     color:#FFD54A;
+    transform:translateY(-2px);
 }
 
 .hero{
     text-align:center;
-    padding:90px 20px;
+    padding:50px 20px 90px;
 }
 
 .badge{
