@@ -278,7 +278,8 @@ color:white;
 
 .action-badge {
     display: inline-block;
-    margin-left: 12px;
+    margin-left: auto;
+    float: right;
     padding: 5px 12px;
     border-radius: 999px;
     font-size: 12px;
@@ -299,6 +300,3 @@ color:white;
     box-shadow: 0 0 12px rgba(139,92,246,.35);
 }
 
-.resource-card:first-child {
-    border: 2px solid #ff3b30;
-}
