@@ -282,3 +282,8 @@ color:white;
     background: #22c55e;
     color: white;
 }
+
+.action-badge.soon {
+    background: #8b5cf6;
+    color: white;
+}
