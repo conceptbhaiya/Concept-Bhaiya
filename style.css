@@ -45,10 +45,11 @@ color:white;
 
 .badge{
     display:inline-block;
-    background:#171717;
-    color:#FFD54A;
+    background:#EDE4FF;
+    color:#6C2BD9;
     border:1px solid #FFD54A;
     padding:10px 20px;
+    border:1px solid #D7C2FF;
     border-radius:50px;
     font-weight:bold;
     margin-bottom:25px;
