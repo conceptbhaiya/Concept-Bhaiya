@@ -45,8 +45,9 @@ color:white;
 
 .badge{
     display:inline-block;
-    background:#1E1B4B;
-    color:#6C2BD9;
+    background:#171717;
+    color:#FFD54A;
+    border:1px solid #FFD54A;
     padding:10px 20px;
     border-radius:50px;
     font-weight:bold;
