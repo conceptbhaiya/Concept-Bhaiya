@@ -198,3 +198,23 @@ color:white;
     color:#D7C2FF;
     font-weight:600;
 }
+
+/* ===== STATUS BADGES ===== */
+
+.chapter-status{
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.chapter-status.live{
+    background:#0F3D2E;
+    color:#57F287;
+}
+
+.chapter-status.soon{
+    background:#3A285A;
+    color:#D7C2FF;
+}
