@@ -287,3 +287,7 @@ color:white;
     background: #8b5cf6;
     color: white;
 }
+
+.resource-card:first-child {
+    border: 2px solid #ff3b30;
+}
