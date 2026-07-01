@@ -174,9 +174,10 @@ color:white;
 }
 
 .chapter-item:hover{
-    transform:translateY(-4px);
+    transform:translateY(-4px) scale(1.01);
     border-color:#FFD54A;
-    box-shadow:0 0 25px rgba(108,43,217,.35);
+    box-shadow:0 12px 35px rgba(108,43,217,.30);
+
 }
 
 .chapter-number{
@@ -188,9 +189,10 @@ color:white;
 
 .chapter-name{
     flex:1;
-    font-size:22px;
-    color:#FFFFFF;
-    font-weight:600;
+    font-size:23px;
+    color:#F9FAFB;
+    font-weight:700;
+    line-height:1.4;
 }
 
 .chapter-status{
