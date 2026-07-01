@@ -240,6 +240,10 @@ color:white;
     text-decoration:none;
     transition:0.3s;
 }
+.resource-card,
+.resource-card:visited {
+    color: inherit;
+}
 
 .resource-card:hover{
     transform:translateY(-6px) scale(1.02);
