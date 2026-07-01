@@ -269,3 +269,16 @@ color:white;
     border-left: 6px solid #B794F4;
     padding-left: 16px;
 }
+
+.action-badge {
+    float: right;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.action-badge.open {
+    background: #22c55e;
+    color: white;
+}
