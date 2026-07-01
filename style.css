@@ -42,16 +42,16 @@ color:white;
 
 .hero{
     text-align:center;
-    padding:50px 20px 90px;
+    padding:60px 20px 90px;
 }
 
 .badge{
     display:inline-block;
-    background:#EDE4FF;
-    color:#6C2BD9;
-    border:1px solid #FFD54A;
+    background:rgba(215,194,255,0.12);
+    color:#F5E6FF;
     padding:10px 20px;
     border:1px solid #D7C2FF;
+    box-shadow:0 0 20px rgba(108,43,217,0.18);
     border-radius:50px;
     font-weight:bold;
     margin-bottom:25px;
