@@ -55,9 +55,19 @@ function loadQuestion() {
 
         button.onclick = () => {
 
-            questionStatus[currentQuestion].selectedOption = index;
+    if (questionStatus[currentQuestion].locked) return;
 
-        };
+    questionStatus[currentQuestion].selectedOption = index;
+
+    document.querySelectorAll(".option-btn").forEach(btn => {
+
+        btn.style.background = "";
+
+    });
+
+    button.style.background = "#7C3AED";
+
+};
 
         optionsContainer.appendChild(button);
 
