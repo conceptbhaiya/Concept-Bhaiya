@@ -38,7 +38,6 @@ const lectureData = {
         difficulty: "Medium"
     }
 
-]
 
   {
     id: "MBI-L01-Q02",
