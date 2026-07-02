@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Concept Challenge | Concept Bhaiya</title>
 
     <link rel="stylesheet" href="concept-challenge.css">
+
     <script src="data/biology/molecular_basis_of_inheritance/lecture_01.js"></script>
+
 </head>
 
 <body>
 
-    <div class="challenge-container">
+<div class="challenge-container">
+
+    <!-- ========================= -->
+    <!-- WELCOME SCREEN -->
+    <!-- ========================= -->
 
     <div id="welcome-screen">
 
@@ -30,9 +40,13 @@
             <h3>Instructions</h3>
 
             <ul>
+
                 <li>Each question carries 1 mark.</li>
-                <li>You can skip questions.</li>
+
+                <li>You can skip and return to questions anytime.</li>
+
                 <li>Locked answers cannot be changed.</li>
+
                 <li>Every question contains a concept explanation.</li>
 
             </ul>
@@ -40,96 +54,9 @@
         </div>
 
         <button id="start-btn">
+
             Start Challenge
+
         </button>
 
     </div>
-
-
-
-    <div id="quiz-screen" style="display:none;">
-
-        <div id="top-bar">
-
-            <div id="progress-text">
-                Question 1 of 5
-            </div>
-
-            <div id="timer">
-                00:00
-            </div>
-
-        </div>
-
-        <div id="progress-bar">
-
-            <div id="progress-fill"></div>
-
-        </div>
-
-        <div id="question-navigator"></div>
-
-        <h2 id="question"></h2>
-
-        <div id="options"></div>
-
-        <div id="feedback"></div>
-
-        <div id="navigation">
-
-            <button id="previous-btn">
-                Previous
-            </button>
-
-            <button id="previous-btn">
-    Previous
-</button>
-
-<button id="skip-btn">
-    Skip
-</button>
-
-<button id="lock-btn">
-    Lock Answer
-</button>
-
-<button id="next-btn">
-    Next
-</button>
-
-            <button id="lock-btn">
-                Lock Answer
-            </button>
-
-            <button id="next-btn">
-                Next
-            </button>
-
-        </div>
-
-    </div>
-
-
-
-    <div id="result-screen" style="display:none;">
-
-        <h1>
-            Challenge Complete 🎉
-        </h1>
-
-        <div id="result-summary">
-
-        </div>
-
-        <button id="review-btn">
-            Review Answers
-        </button>
-
-    </div>
-
-</div>
-
-    <script src="quiz-engine.js"></script>
-
-</body>
-</html>
