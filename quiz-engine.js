@@ -2,8 +2,10 @@ const lecture = lectureData;
 
 let currentQuestion = 0;
 let score = 0;
+
 let totalTime = 0;
-let questionStartTime = null;
+let timerInterval = null;
+let questionStartTime = 0;
 
 const questionStatus = lecture.questions.map(() => ({
     selectedOption: null,
@@ -12,73 +14,118 @@ const questionStatus = lecture.questions.map(() => ({
     timeTaken: 0
 }));
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Concept Bhaiya Quiz Engine Started");
-    console.log(lecture);
-});
-
 const welcomeScreen = document.getElementById("welcome-screen");
 const quizScreen = document.getElementById("quiz-screen");
+const resultScreen = document.getElementById("result-screen");
+
 const startButton = document.getElementById("start-btn");
 
-startButton.addEventListener("click", () => {
+const questionElement = document.getElementById("question");
+const optionsElement = document.getElementById("options");
+const feedbackElement = document.getElementById("feedback");
+
+const progressText = document.getElementById("progress-text");
+const progressFill = document.getElementById("progress-fill");
+const timerElement = document.getElementById("timer");
+
+const previousButton = document.getElementById("previous-btn");
+const nextButton = document.getElementById("next-btn");
+const lockButton = document.getElementById("lock-btn");
+const skipButton = document.getElementById("skip-btn");
+
+const navigatorContainer = document.getElementById("question-navigator");
+
+startButton.addEventListener("click", startChallenge);
+
+function startChallenge() {
 
     welcomeScreen.style.display = "none";
 
     quizScreen.style.display = "block";
 
+    questionStartTime = Date.now();
+
+    startTimer();
+
     buildNavigator();
 
-loadQuestion();
+    loadQuestion();
 
-});
+}
+
+function startTimer() {
+
+    timerInterval = setInterval(() => {
+
+        totalTime++;
+
+        const minutes = String(Math.floor(totalTime / 60)).padStart(2, "0");
+
+        const seconds = String(totalTime % 60).padStart(2, "0");
+
+        timerElement.innerText = `${minutes}:${seconds}`;
+
+    }, 1000);
+
+}
 
 function loadQuestion() {
 
     const question = lecture.questions[currentQuestion];
 
-    document.getElementById("progress-text").innerText =
+    progressText.innerText =
         `Question ${currentQuestion + 1} of ${lecture.questions.length}`;
 
-    document.getElementById("question").innerText =
-        question.question;
+    progressFill.style.width =
+        `${((currentQuestion + 1) / lecture.questions.length) * 100}%`;
 
-    const optionsContainer = document.getElementById("options");
+    questionElement.innerText = question.question;
 
-    optionsContainer.innerHTML = "";
+    optionsElement.innerHTML = "";
+
+    feedbackElement.innerHTML = "";
 
     question.options.forEach((option, index) => {
 
         const button = document.createElement("button");
 
+        button.className = "option-btn";
+
         button.innerText = option;
 
-        button.className = "option-btn";
+        if (questionStatus[currentQuestion].selectedOption === index) {
+
+            button.classList.add("selected");
+
+        }
 
         button.onclick = () => {
 
-    if (questionStatus[currentQuestion].locked) return;
+            if (questionStatus[currentQuestion].locked) return;
 
-    questionStatus[currentQuestion].selectedOption = index;
+            questionStatus[currentQuestion].selectedOption = index;
 
-    document.querySelectorAll(".option-btn").forEach(btn => {
+            document.querySelectorAll(".option-btn").forEach(btn => {
 
-        btn.style.background = "";
+                btn.classList.remove("selected");
 
-    });
+            });
 
-    button.style.background = "#7C3AED";
+            button.classList.add("selected");
+
             buildNavigator();
 
-};
+        };
 
-        optionsContainer.appendChild(button);
+        optionsElement.appendChild(button);
 
     });
 
 }
 
-document.getElementById("lock-btn").addEventListener("click", () => {
+lockButton.addEventListener("click", lockAnswer);
+
+function lockAnswer() {
 
     const selected = questionStatus[currentQuestion].selectedOption;
 
@@ -90,138 +137,197 @@ document.getElementById("lock-btn").addEventListener("click", () => {
 
     }
 
-    const correct = lecture.questions[currentQuestion].correctOption;
-
-    const feedback = document.getElementById("feedback");
-
-    if (selected === correct) {
-
-        score++;
-
-        feedback.innerHTML =
-            "<h3 style='color:#22C55E;'>✅ Correct!</h3><p>" +
-            lecture.questions[currentQuestion].explanation +
-            "</p>";
-
-    } else {
-
-        feedback.innerHTML =
-            "<h3 style='color:#EF4444;'>❌ Incorrect!</h3><p>" +
-            lecture.questions[currentQuestion].explanation +
-            "</p>";
-
-    }
+    const question = lecture.questions[currentQuestion];
 
     questionStatus[currentQuestion].locked = true;
 
-});
+    questionStatus[currentQuestion].timeTaken =
+        Math.floor((Date.now() - questionStartTime) / 1000);
 
-document.getElementById("next-btn").addEventListener("click", () => {
+    if (selected === question.correctOption) {
 
-    if (currentQuestion < lecture.questions.length - 1) {
+        score++;
 
-        currentQuestion++;
-
-        document.getElementById("feedback").innerHTML = "";
-
-       buildNavigator();
-
-loadQuestion();
+        feedbackElement.innerHTML = `
+            <h3 style="color:#22C55E;">✅ Correct</h3>
+            <p>${question.explanation}</p>
+        `;
 
     } else {
 
-        alert("You have reached the last question.");
+        feedbackElement.innerHTML = `
+            <h3 style="color:#EF4444;">❌ Incorrect</h3>
+            <p>${question.explanation}</p>
+        `;
 
     }
 
-});
+    buildNavigator();
 
-document.getElementById("previous-btn").addEventListener("click", () => {
+}
 
-    if (currentQuestion > 0) {
+previousButton.addEventListener("click", previousQuestion);
+nextButton.addEventListener("click", nextQuestion);
+skipButton.addEventListener("click", skipQuestion);
 
-        currentQuestion--;
+function previousQuestion() {
 
-        document.getElementById("feedback").innerHTML = "";
+    if (currentQuestion === 0) return;
 
-        buildNavigator();
+    currentQuestion--;
 
-loadQuestion();
+    questionStartTime = Date.now();
+
+    buildNavigator();
+
+    loadQuestion();
+
+}
+
+function nextQuestion() {
+
+    if (currentQuestion === lecture.questions.length - 1) {
+
+        finishChallenge();
+
+        return;
 
     }
 
-});
+    currentQuestion++;
 
-document.getElementById("skip-btn").addEventListener("click", () => {
+    questionStartTime = Date.now();
+
+    buildNavigator();
+
+    loadQuestion();
+
+}
+
+function skipQuestion() {
 
     questionStatus[currentQuestion].skipped = true;
 
-    if (currentQuestion < lecture.questions.length - 1) {
+    nextQuestion();
 
-        currentQuestion++;
-
-        document.getElementById("feedback").innerHTML = "";
-
-        loadQuestion();
-
-    }
-
-});
+}
 
 function buildNavigator() {
 
-    const navigator = document.getElementById("question-navigator");
+    navigatorContainer.innerHTML = "";
 
-    navigator.innerHTML = "";
-
-    lecture.questions.forEach((q, index) => {
+    lecture.questions.forEach((question, index) => {
 
         const button = document.createElement("button");
 
+        button.className = "navigator-btn";
+
         button.innerText = index + 1;
 
-        button.className = "navigator-btn";
         const status = questionStatus[index];
 
-if (status.locked) {
-
-    if (status.selectedOption === lecture.questions[index].correctOption) {
-
-        button.style.background = "#22C55E";
-
-    } else {
-
-        button.style.background = "#EF4444";
-
-    }
-
-} else if (status.skipped) {
-
-    button.style.background = "#6B7280";
-
-} else if (index === currentQuestion) {
-
-    button.style.background = "#7C3AED";
-
-}
         if (index === currentQuestion) {
 
-    button.style.background = "#7C3AED";
+            button.classList.add("current");
 
-}
+        }
+
+        if (status.locked) {
+
+            if (status.selectedOption === question.correctOption) {
+
+                button.classList.add("correct");
+
+            } else {
+
+                button.classList.add("wrong");
+
+            }
+
+        } else if (status.skipped) {
+
+            button.classList.add("skipped");
+
+        }
 
         button.onclick = () => {
 
             currentQuestion = index;
 
-            document.getElementById("feedback").innerHTML = "";
+            questionStartTime = Date.now();
+
+            buildNavigator();
 
             loadQuestion();
 
         };
 
-        navigator.appendChild(button);
+        navigatorContainer.appendChild(button);
 
     });
 
 }
+
+function finishChallenge() {
+
+    const finish = confirm("Are you sure you want to finish the challenge?");
+
+    if (!finish) return;
+
+    clearInterval(timerInterval);
+
+    quizScreen.style.display = "none";
+
+    resultScreen.style.display = "block";
+
+    const attempted = questionStatus.filter(q => q.locked).length;
+
+    const skipped = questionStatus.filter(q => q.skipped).length;
+
+    const wrong = attempted - score;
+
+    const accuracy = attempted === 0
+        ? 0
+        : Math.round((score / attempted) * 100);
+
+    const averageTime = lecture.questions.length === 0
+        ? 0
+        : Math.round(totalTime / lecture.questions.length);
+
+    document.getElementById("result-summary").innerHTML = `
+
+        <h2>Challenge Summary</h2>
+
+        <p><strong>Score:</strong> ${score} / ${lecture.questions.length}</p>
+
+        <p><strong>Correct:</strong> ${score}</p>
+
+        <p><strong>Wrong:</strong> ${wrong}</p>
+
+        <p><strong>Skipped:</strong> ${skipped}</p>
+
+        <p><strong>Accuracy:</strong> ${accuracy}%</p>
+
+        <p><strong>Total Time:</strong> ${formatTime(totalTime)}</p>
+
+        <p><strong>Average Time per Question:</strong> ${averageTime} sec</p>
+
+    `;
+
+}
+
+function formatTime(seconds) {
+
+    const minutes = Math.floor(seconds / 60);
+
+    const remainingSeconds = seconds % 60;
+
+    return `${minutes} min ${remainingSeconds} sec`;
+
+}
+
+document.getElementById("review-btn").addEventListener("click", () => {
+
+    alert("Review Mode will be added in Version 2.");
+
+});
