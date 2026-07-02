@@ -36,7 +36,7 @@ const lectureData = {
         image: null,
 
         difficulty: "Medium"
-    }
+    },
 
 
   {
