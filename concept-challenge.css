@@ -1,1 +1,132 @@
+:root{
 
+    --bg:#0B1020;
+    --card:#161D2F;
+
+    --primary:#7C3AED;
+    --primary-light:#9F67FF;
+
+    --yellow:#FACC15;
+
+    --text:#F8FAFC;
+    --muted:#CBD5E1;
+
+    --correct:#22C55E;
+    --wrong:#EF4444;
+    --skipped:#6B7280;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:40px 20px;
+
+}
+
+.challenge-container{
+
+    width:100%;
+
+    max-width:900px;
+
+}
+
+#welcome-screen,
+#quiz-screen,
+#result-screen{
+
+    background:var(--card);
+
+    border:2px solid var(--primary);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:0 0 25px rgba(124,58,237,.25);
+
+}
+
+#welcome-screen{
+
+    text-align:center;
+
+}
+
+#welcome-screen h1{
+
+    color:var(--yellow);
+
+    font-size:42px;
+
+    margin-bottom:18px;
+
+}
+
+#lecture-title{
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+#lecture-name{
+
+    color:var(--muted);
+
+    margin-bottom:30px;
+
+    font-size:18px;
+
+}
+
+#instructions{
+
+    background:#0F172A;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:left;
+
+    margin-bottom:30px;
+
+}
+
+#instructions h3{
+
+    color:var(--yellow);
+
+    margin-bottom:15px;
+
+}
+
+#instructions ul{
+
+    padding-left:22px;
+
+    line-height:1.9;
+
+}
