@@ -144,6 +144,23 @@ lockButton.onclick = function () {
         `;
 
         score++;
+        setTimeout(() => {
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+
+        feedback.innerHTML = "";
+
+        loadQuestion();
+
+    } else {
+
+        alert("Challenge Completed!");
+
+    }
+
+}, 1800);
 
     } else {
 
@@ -160,6 +177,23 @@ lockButton.onclick = function () {
         ${questions[currentQuestion].explanation}
         </p>
         `;
+        setTimeout(() => {
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+
+        feedback.innerHTML = "";
+
+        loadQuestion();
+
+    } else {
+
+        alert("Challenge Completed!");
+
+    }
+
+}, 1800);
 
     }
 
