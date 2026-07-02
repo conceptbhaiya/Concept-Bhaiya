@@ -27,7 +27,9 @@ startButton.addEventListener("click", () => {
 
     quizScreen.style.display = "block";
 
-    loadQuestion();
+    buildNavigator();
+
+loadQuestion();
 
 });
 
@@ -66,6 +68,7 @@ function loadQuestion() {
     });
 
     button.style.background = "#7C3AED";
+            buildNavigator();
 
 };
 
@@ -121,7 +124,9 @@ document.getElementById("next-btn").addEventListener("click", () => {
 
         document.getElementById("feedback").innerHTML = "";
 
-        loadQuestion();
+       buildNavigator();
+
+loadQuestion();
 
     } else {
 
@@ -139,7 +144,9 @@ document.getElementById("previous-btn").addEventListener("click", () => {
 
         document.getElementById("feedback").innerHTML = "";
 
-        loadQuestion();
+        buildNavigator();
+
+loadQuestion();
 
     }
 
@@ -160,3 +167,61 @@ document.getElementById("skip-btn").addEventListener("click", () => {
     }
 
 });
+
+function buildNavigator() {
+
+    const navigator = document.getElementById("question-navigator");
+
+    navigator.innerHTML = "";
+
+    lecture.questions.forEach((q, index) => {
+
+        const button = document.createElement("button");
+
+        button.innerText = index + 1;
+
+        button.className = "navigator-btn";
+        const status = questionStatus[index];
+
+if (status.locked) {
+
+    if (status.selectedOption === lecture.questions[index].correctOption) {
+
+        button.style.background = "#22C55E";
+
+    } else {
+
+        button.style.background = "#EF4444";
+
+    }
+
+} else if (status.skipped) {
+
+    button.style.background = "#6B7280";
+
+} else if (index === currentQuestion) {
+
+    button.style.background = "#7C3AED";
+
+}
+        if (index === currentQuestion) {
+
+    button.style.background = "#7C3AED";
+
+}
+
+        button.onclick = () => {
+
+            currentQuestion = index;
+
+            document.getElementById("feedback").innerHTML = "";
+
+            loadQuestion();
+
+        };
+
+        navigator.appendChild(button);
+
+    });
+
+}
