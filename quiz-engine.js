@@ -30,3 +30,37 @@ startButton.addEventListener("click", () => {
     loadQuestion();
 
 });
+
+function loadQuestion() {
+
+    const question = lecture.questions[currentQuestion];
+
+    document.getElementById("progress-text").innerText =
+        `Question ${currentQuestion + 1} of ${lecture.questions.length}`;
+
+    document.getElementById("question").innerText =
+        question.question;
+
+    const optionsContainer = document.getElementById("options");
+
+    optionsContainer.innerHTML = "";
+
+    question.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.innerText = option;
+
+        button.className = "option-btn";
+
+        button.onclick = () => {
+
+            questionStatus[currentQuestion].selectedOption = index;
+
+        };
+
+        optionsContainer.appendChild(button);
+
+    });
+
+}
