@@ -130,3 +130,6 @@ const lectureData = {
 
     difficulty: "Medium"
 }
+        ] 
+};
+
