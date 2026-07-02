@@ -144,3 +144,19 @@ document.getElementById("previous-btn").addEventListener("click", () => {
     }
 
 });
+
+document.getElementById("skip-btn").addEventListener("click", () => {
+
+    questionStatus[currentQuestion].skipped = true;
+
+    if (currentQuestion < lecture.questions.length - 1) {
+
+        currentQuestion++;
+
+        document.getElementById("feedback").innerHTML = "";
+
+        loadQuestion();
+
+    }
+
+});
