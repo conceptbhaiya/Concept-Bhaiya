@@ -120,3 +120,17 @@ document.getElementById("next-btn").addEventListener("click", () => {
     }
 
 });
+
+document.getElementById("previous-btn").addEventListener("click", () => {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        document.getElementById("feedback").innerHTML = "";
+
+        loadQuestion();
+
+    }
+
+});
