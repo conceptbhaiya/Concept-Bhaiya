@@ -61,3 +61,55 @@ explanation: "Robert Brown discovered the nucleus first, then Miescher discovere
 }
 
 ];
+
+let currentQuestion = 0;
+let score = 0;
+let selectedOption = null;
+
+const questionElement = document.getElementById("question");
+const optionsElement = document.getElementById("options");
+const questionNumber = document.getElementById("question-number");
+const scoreElement = document.getElementById("score");
+
+function loadQuestion() {
+
+    selectedOption = null;
+
+    const q = questions[currentQuestion];
+
+    questionElement.textContent = q.question;
+
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    scoreElement.textContent = `Score: ${score}`;
+
+    optionsElement.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.textContent = option;
+
+        button.className = "option";
+
+        button.onclick = () => {
+
+            selectedOption = index;
+
+            document.querySelectorAll(".option").forEach(btn =>
+                btn.classList.remove("selected")
+            );
+
+            button.classList.add("selected");
+
+        };
+
+        optionsElement.appendChild(button);
+
+    });
+
+}
+
+loadQuestion();
