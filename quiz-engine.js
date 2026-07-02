@@ -3,31 +3,16 @@ const lecture = lectureData;
 let currentQuestion = 0;
 let score = 0;
 let totalTime = 0;
-
 let questionStartTime = null;
 
-let questionStatus = [];
+const questionStatus = lecture.questions.map(() => ({
+    selectedOption: null,
+    locked: false,
+    skipped: false,
+    timeTaken: 0
+}));
 
-lecture.questions.forEach(() => {
-
-    questionStatus.push({
-
-        selectedOption: null,
-
-        locked: false,
-
-        skipped: false,
-
-        timeTaken: 0
-
-    });
-
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Concept Bhaiya Quiz Engine Started");
+    console.log(lecture);
 });
-
-function loadQuestion() {
-
-    const question = lecture.questions[currentQuestion];
-
-    console.log(question);
-
-}
