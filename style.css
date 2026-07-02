@@ -234,7 +234,7 @@ color:white;
 
 .resource-card{
     background:#161d2f;
-    border:2px solid #b69cff;
+    border:2px solid #8B5CF6;
     border-radius:22px;
     padding:28px;
     text-decoration:none;
@@ -248,7 +248,7 @@ color:white;
 
 .resource-card:hover{
     transform:translateY(-6px) scale(1.02);
-    border-color:#b69cff;
+    border-color:#8B5CF6;
     box-shadow:0 12px 30px rgba(0,0,0,0.25);
 }
 }
@@ -290,14 +290,14 @@ color:white;
 }
 
 .action-badge.open {
-    background: #22c55e;
+    background: #7C3AED;
     color: white;
     box-shadow: 0 0 12px rgba(34,197,94,.35);
 }
 
 .action-badge.soon {
-    background: #8b5cf6;
+    background: #7C3AED;
     color: white;
-    box-shadow: 0 0 12px rgba(139,92,246,.35);
+    box-shadow: 0 0 12px rgba(124,58,237,.40);
 }
 
