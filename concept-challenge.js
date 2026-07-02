@@ -113,3 +113,54 @@ function loadQuestion() {
 }
 
 loadQuestion();
+
+const lockButton = document.getElementById("lock-btn");
+const feedback = document.getElementById("feedback");
+
+lockButton.onclick = function () {
+
+    if (selectedOption === null) {
+        alert("Please select an option first.");
+        return;
+    }
+
+    const correctAnswer = questions[currentQuestion].answer;
+    const buttons = document.querySelectorAll(".option");
+
+    buttons.forEach(btn => btn.disabled = true);
+
+    if (selectedOption === correctAnswer) {
+
+        buttons[selectedOption].style.background = "#22C55E";
+
+        feedback.innerHTML = `
+        <div style="color:#22C55E;font-weight:bold;font-size:22px;">
+        ✅ Concept Clear!
+        </div>
+
+        <p style="margin-top:10px;color:#CBD5E1;">
+        ${questions[currentQuestion].explanation}
+        </p>
+        `;
+
+        score++;
+
+    } else {
+
+        buttons[selectedOption].style.background = "#EF4444";
+
+        buttons[correctAnswer].style.background = "#22C55E";
+
+        feedback.innerHTML = `
+        <div style="color:#EF4444;font-weight:bold;font-size:22px;">
+        ❌ Concept Not Clear Yet!
+        </div>
+
+        <p style="margin-top:10px;color:#CBD5E1;">
+        ${questions[currentQuestion].explanation}
+        </p>
+        `;
+
+    }
+
+};
