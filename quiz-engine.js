@@ -102,3 +102,21 @@ document.getElementById("lock-btn").addEventListener("click", () => {
     questionStatus[currentQuestion].locked = true;
 
 });
+
+document.getElementById("next-btn").addEventListener("click", () => {
+
+    if (currentQuestion < lecture.questions.length - 1) {
+
+        currentQuestion++;
+
+        document.getElementById("feedback").innerHTML = "";
+
+        loadQuestion();
+
+    } else {
+
+        alert("You have reached the last question.");
+
+    }
+
+});
