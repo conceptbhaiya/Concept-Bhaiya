@@ -64,3 +64,41 @@ function loadQuestion() {
     });
 
 }
+
+document.getElementById("lock-btn").addEventListener("click", () => {
+
+    const selected = questionStatus[currentQuestion].selectedOption;
+
+    if (selected === null) {
+
+        alert("Please select an option first.");
+
+        return;
+
+    }
+
+    const correct = lecture.questions[currentQuestion].correctOption;
+
+    const feedback = document.getElementById("feedback");
+
+    if (selected === correct) {
+
+        score++;
+
+        feedback.innerHTML =
+            "<h3 style='color:#22C55E;'>✅ Correct!</h3><p>" +
+            lecture.questions[currentQuestion].explanation +
+            "</p>";
+
+    } else {
+
+        feedback.innerHTML =
+            "<h3 style='color:#EF4444;'>❌ Incorrect!</h3><p>" +
+            lecture.questions[currentQuestion].explanation +
+            "</p>";
+
+    }
+
+    questionStatus[currentQuestion].locked = true;
+
+});
