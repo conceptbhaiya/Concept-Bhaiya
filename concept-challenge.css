@@ -1,65 +1,6 @@
 
 
-.challenge-header{
-    text-align:center;
-    margin-bottom:30px;
-}
 
-.challenge-header h1{
-    color:var(--yellow);
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-.challenge-header p{
-    color:var(--muted);
-    font-size:18px;
-}
-
-.progress{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:20px;
-    color:var(--muted);
-    font-weight:bold;
-}
-
-.question-box{
-    background:var(--card);
-    border:2px solid var(--primary);
-    border-radius:20px;
-    padding:30px;
-}
-
-.question-box h2{
-    font-size:28px;
-    margin-bottom:25px;
-    line-height:1.5;
-}
-
-.options{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.feedback{
-    margin-top:20px;
-    min-height:70px;
-}
-
-#lock-btn{
-    width:100%;
-    margin-top:25px;
-    background:var(--primary);
-    color:white;
-    border:none;
-    border-radius:14px;
-    padding:18px;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-}
 
 .option{
     width:100%;
